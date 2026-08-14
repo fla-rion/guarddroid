@@ -23,9 +23,9 @@ android {
             val keystoreB64 = System.getenv("KEYSTORE_BASE64")?.takeIf { it.isNotEmpty() }
             if (keystoreB64 != null) {
                 storeFile = file(System.getenv("KEYSTORE_PATH") ?: "release.keystore")
-                storePassword = System.getenv("STORE_PASSWORD") ?: ""
-                keyAlias = System.getenv("KEY_ALIAS") ?: ""
-                keyPassword = System.getenv("KEY_PASSWORD") ?: ""
+                storePassword = (System.getenv("STORE_PASSWORD") ?: "").trim()
+                keyAlias = (System.getenv("KEY_ALIAS") ?: "").trim()
+                keyPassword = (System.getenv("KEY_PASSWORD") ?: "").trim()
             }
         }
     }

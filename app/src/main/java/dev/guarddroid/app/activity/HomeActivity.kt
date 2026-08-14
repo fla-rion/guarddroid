@@ -2,6 +2,7 @@ package dev.guarddroid.app.activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import dev.guarddroid.app.R
@@ -30,15 +31,15 @@ class HomeActivity : AppCompatActivity() {
         binding.fabAdmin.setOnClickListener {
             startActivity(Intent(this, AdminActivity::class.java))
         }
-    }
 
-    override fun onBackPressed() {
-        // Prevent users from closing the home screen via back
-        // Instead show home
-        val homeIntent = Intent(Intent.ACTION_MAIN).apply {
-            addCategory(Intent.CATEGORY_HOME)
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        startActivity(homeIntent)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Prevent leaving the restricted home screen via back — go to launcher instead
+                startActivity(Intent(Intent.ACTION_MAIN).apply {
+                    addCategory(Intent.CATEGORY_HOME)
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                })
+            }
+        })
     }
 }

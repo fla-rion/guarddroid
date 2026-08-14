@@ -2,6 +2,7 @@ package dev.guarddroid.app.activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import dev.guarddroid.app.R
@@ -31,10 +32,10 @@ class BlockedAppActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminActivity::class.java))
             finish()
         }
-    }
 
-    override fun onBackPressed() {
-        goHome()
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { goHome() }
+        })
     }
 
     private fun goHome() {

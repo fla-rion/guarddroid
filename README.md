@@ -1,190 +1,75 @@
 # GuardDroid
 
+<p align="center">
+  <img src="app/src/main/res/drawable/ic_shield.xml" width="80" alt="GuardDroid Shield"/>
+</p>
+
+<p align="center">
+  <a href="#deutsch">🇩🇪 Deutsch</a> &nbsp;|&nbsp;
+  <a href="#english">🇬🇧 English</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/fla-rion/guarddroid/actions/workflows/ci.yml">
+    <img src="https://github.com/fla-rion/guarddroid/actions/workflows/ci.yml/badge.svg" alt="CI"/>
+  </a>
+  <img src="https://img.shields.io/badge/Android-8.0%2B-green?logo=android" alt="Android 8+"/>
+  <img src="https://img.shields.io/badge/Kotlin-2.0-blue?logo=kotlin" alt="Kotlin"/>
+  <img src="https://img.shields.io/badge/License-Apache%202.0-lightgrey" alt="License"/>
+  <img src="https://img.shields.io/badge/GMS%2FHMS-compatible-orange" alt="GMS HMS"/>
+</p>
+
+---
+
+## Deutsch
+
 Eine generische, herstellerunabhängige Android-Jugendschutz- und Geräteverwaltungs-App.
 
-## Überblick
+### Überblick
 
 GuardDroid ermöglicht Eltern und Erziehungsberechtigten, Android-Geräte mit flexiblen Kinderschutzregeln zu verwalten. Die App funktioniert auf nahezu allen Android-Geräten ab Android 8.0 – einschließlich Huawei-Geräte ohne Google Play Services.
 
-**Wichtig:** GuardDroid ist keine Cloud-Lösung. Alle Regeln werden lokal auf dem Gerät gespeichert und ausgeführt. Kein Internet erforderlich, keine Anmeldung, kein Google-Account.
+> **Wichtig:** GuardDroid ist keine Cloud-Lösung. Alle Regeln werden lokal gespeichert und ausgeführt. Kein Internet erforderlich, keine Anmeldung, kein Google-Account.
 
----
+### Unterstützte Android-Versionen
 
-## Unterstützte Android-Versionen
+| Version | API | Status |
+|---------|-----|--------|
+| Android 8.0 Oreo | 26 | ✅ Minimum |
+| Android 10 | 29 | ✅ Getestet |
+| Android 12 | 31 | ✅ Getestet |
+| Android 14 | 34 | ✅ Getestet |
+| Android 15 | 35 | ✅ Ziel-SDK |
 
-- **Minimum:** Android 8.0 (API 26)
-- **Getestet mit:** Android 8, 10, 12, 14
-- **Ziel-SDK:** Android 15 (API 35)
+### Unterstützte Geräte
 
----
+| Gerät | System | GMS/HMS | Unterstützung |
+|-------|--------|---------|--------------|
+| Google Pixel | Stock Android | GMS | ✅ Vollständig |
+| Samsung (One UI) | One UI | GMS | ✅ Vollständig |
+| Xiaomi / HyperOS | MIUI/HyperOS | GMS | ✅ Vollständig |
+| Motorola | Stock Android | GMS | ✅ Vollständig |
+| Huawei P20 lite | EMUI 8+ | GMS | ✅ Vollständig |
+| Huawei P40 lite | EMUI 10 | HMS | ✅ Vollständig |
+| Honor | Magic UI/HMS | HMS | ✅ Vollständig |
+| Ohne GMS | AOSP | keins | ✅ Vollständig |
 
-## Unterstützte Geräte
+### Funktionen
 
-Die App wurde speziell für Gerätevielfalt entwickelt:
-
-| Gerät | Besonderheit | Unterstützung |
-|-------|-------------|--------------|
-| Google Pixel | Reines Android + GMS | Vollständig |
-| Samsung (One UI) | GMS | Vollständig |
-| Xiaomi/MIUI/HyperOS | GMS | Vollständig |
-| Motorola | Reines Android + GMS | Vollständig |
-| Huawei P20 lite (EMUI 8+) | GMS | Vollständig |
-| Huawei P40 lite (EMUI 10) | HMS statt GMS | Vollständig |
-| Huawei AppGallery | Ohne Play Store | Vollständig |
-| Honor | HMS | Vollständig |
-| Ohne GMS | AOSP/HMS | Vollständig |
-
----
-
-## Funktionen
-
-### Verwaltungsebenen
-
-#### Stufe 1: Nur Überwachung (kein Device Admin)
-- App-Nutzung via Accessibility Service überwachen
-- Eingeschränkte Blocking-Möglichkeiten
-
-#### Stufe 2: Device Administrator
-- Deinstallationsschutz für geschützte Apps (`setUninstallBlocked`)
-- Alle Stufe-1-Funktionen
-
-#### Stufe 3: Device Owner (empfohlen)
-- **App sperren** (`setPackagesSuspended`) – System verhindert Start
-- **App ausblenden** (`setApplicationHidden`) – App erscheint nicht im Launcher
-- **Installation sperren** (`DISALLOW_INSTALL_APPS`)
-- **Unbekannte Quellen sperren** (`DISALLOW_INSTALL_UNKNOWN_SOURCES`)
-- **Einstellungen einschränken** (`DISALLOW_CONFIG_WIFI`, etc.)
-- **USB-Debugging sperren** (`DISALLOW_DEBUGGING_FEATURES`)
-
-### App-Status
+#### App-Status
 
 | Status | Bedeutung |
 |--------|-----------|
-| `ALWAYS_ALLOWED` | App ist immer nutzbar |
-| `SCHEDULED` | App nur in konfigurierten Zeitfenstern nutzbar |
-| `ADMIN_ONLY` | App nur im Admin-Modus nutzbar |
-| `BLOCKED` | App ist gesperrt |
-| `HIDDEN` | App ist ausgeblendet (benötigt Device Owner) |
+| `IMMER_ERLAUBT` | App ist immer nutzbar |
+| `ZEITPLAN` | App nur in konfigurierten Zeitfenstern |
+| `NUR_ADMIN` | App nur im Admin-Modus nutzbar |
+| `GESPERRT` | App ist gesperrt |
+| `AUSGEBLENDET` | App erscheint nicht im Launcher (benötigt Device Owner) |
 
-### Zeitpläne
-
-Zeitpläne können für einzelne Wochentage konfiguriert werden, mit mehreren Zeitfenstern pro Tag:
-
-```
-Montag–Freitag:
-  06:00–07:30 → Telefon, Nachrichten
-  07:30–15:00 → Schul-Apps  
-  15:00–19:00 → Freizeit-Apps
-  19:00–06:00 → Telefon, Nachrichten
-
-Wochenende:
-  09:00–21:00 → Freizeit-Apps
-```
-
-### Sicherheit
-
-- Master-Code mit PBKDF2WithHmacSHA256, 100.000 Iterationen, 16-Byte zufälliges Salt
-- Gespeichert in `EncryptedSharedPreferences` (Android Keystore)
-- Rate Limiting: Nach 5 Fehlversuchen → 30 Minuten Sperre
-- Admin-Modus Timeout: 5 Minuten Inaktivität (konfigurierbar)
-- Kein Klartext-Passwort in Logs oder Speicher
-
----
-
-## Architektur
-
-```
-app/                        → Haupt-App, Activities, Services, Receiver
-core/
-  common/                   → Gemeinsame Enums und Typen (AppStatus, Capability)
-  device/                   → Geräteerkennung, CapabilityEngine
-  management/               → ManagementProvider-Abstraktion
-  security/                 → SecurityManager (Master-Code)
-  scheduling/               → ScheduleEvaluator
-  database/                 → Room-Datenbank, DAOs, Entities
-feature/
-  setup/                    → 8-Schritte-Einrichtungsassistent
-  apps/                     → App-Liste für Benutzer
-  admin/                    → Admin-Dashboard mit Code-Eingabe
-  restrictions/             → Systemregeln-Verwaltung
-```
-
-### Management-Abstraktion
-
-```
-ManagementFactory
-    ↓ wählt besten Provider
-ManagementProvider (Interface)
-    ├── DeviceOwnerProvider   → Vollständige Kontrolle via DevicePolicyManager
-    ├── DeviceAdminProvider   → Eingeschränkte Kontrolle (nur Uninstall-Schutz)
-    └── AccessibilityProvider → Nur Überwachung (kein System-Enforcement)
-```
-
-### Capability-Engine
-
-Die App prüft bei jedem Start die tatsächlich verfügbaren Funktionen via API – **nicht** anhand des Hersteller-Namens:
-
-```kotlin
-capabilityEngine.check(Capability.APP_HIDING) 
-// → SUPPORTED          wenn Device Owner aktiv
-// → REQUIRES_DEVICE_OWNER  sonst
-// → UNSUPPORTED        wenn API nicht verfügbar
-```
-
----
-
-## Installation
-
-### Normale Installation
-
-1. APK herunterladen und auf das Gerät übertragen
-2. In Einstellungen → Sicherheit → "Unbekannte Quellen" temporär erlauben
-3. APK installieren
-4. Einrichtungsassistenten starten
-
-### Device Owner einrichten (empfohlen, für vollständige Kontrolle)
-
-**Voraussetzungen:**
-- ADB muss installiert sein (Entwicklungscomputer)
-- Gerät darf **keine Google-Konten** (oder andere Konten) haben
-- GuardDroid muss bereits installiert sein
-
-```bash
-# USB-Debugging aktivieren (Einstellungen → Entwickleroptionen → USB-Debugging)
-# Dann:
-adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver
-```
-
-**Konten entfernen falls vorhanden:**
-1. Einstellungen → Konten → alle Konten entfernen
-2. Dann ADB-Befehl ausführen
-3. Konten können danach wieder hinzugefügt werden
-
-**Alternativ (ohne ADB):**
-- NFC-Provisioning beim ersten Gerätestart (Unternehmens-Szenario)
-- QR-Code-Provisioning (Android 7+)
-
----
-
-## Ersteinrichtung
-
-Der Einrichtungsassistent führt in 8 Schritten durch:
-
-1. **Willkommen** – Überblick über GuardDroid
-2. **Geräteanalyse** – Automatische Erkennung aller Geräteeigenschaften
-3. **Berechtigungen** – Nutzungsdaten, Barrierefreiheit, Device Admin
-4. **Master-Code** – Sicheres Festlegen des Administrator-Codes
-5. **Apps konfigurieren** – Status für jede installierte App festlegen
-6. **Zeitpläne** – Nutzungszeiten definieren
-7. **Systemregeln** – Installation, Einstellungen, USB-Debugging
-8. **Zusammenfassung** – Überblick vor Abschluss
-
----
-
-## Device Owner vs. Device Admin vs. Accessibility
+#### Verwaltungsebenen
 
 | Funktion | Accessibility | Device Admin | Device Owner |
-|----------|--------------|-------------|-------------|
+|----------|:---:|:---:|:---:|
 | App-Nutzung überwachen | ✅ | ✅ | ✅ |
 | Deinstallationsschutz | ❌ | ✅ | ✅ |
 | App sperren (System) | ❌ | ❌ | ✅ |
@@ -193,138 +78,405 @@ Der Einrichtungsassistent führt in 8 Schritten durch:
 | Unbekannte Quellen sperren | ❌ | ❌ | ✅ |
 | Einstellungen einschränken | ❌ | ❌ | ✅ |
 
----
+#### Sicherheit
 
-## GMS / HMS Hinweise
+- Master-Code: PBKDF2WithHmacSHA256, 100.000 Iterationen, 16-Byte Salt
+- Gespeichert in `EncryptedSharedPreferences` (Android Keystore)
+- Rate Limiting: Nach 5 Fehlversuchen → 30 Minuten Sperre
+- Admin-Modus Timeout: 5 Minuten (konfigurierbar)
 
-### Google-Geräte (mit GMS)
-Alle Funktionen über offizielle Android-APIs verfügbar.
+### Installation
 
-### Huawei-Geräte (mit HMS, ohne GMS)
-- GuardDroid funktioniert vollständig ohne Google Play Services
-- Device Owner über ADB setzbar (identischer Befehl)
-- App-Sperren, Ausblenden etc. funktionieren über `DevicePolicyManager` (Android-API, nicht Google-spezifisch)
-- Huawei P20 lite (Android 8, EMUI 8): Vollständig unterstützt
-- Huawei P40 lite (Android 10, EMUI 10): Vollständig unterstützt
+#### APK direkt installieren
 
-### Gerät ohne Google Play Store
-- App über APK-Direktinstallation
-- Alle Funktionen verfügbar (kein Play Store benötigt)
+1. APK von [Releases](https://github.com/fla-rion/guarddroid/releases) herunterladen
+2. Einstellungen → Sicherheit → „Unbekannte Quellen" temporär erlauben
+3. APK installieren und Einrichtungsassistenten folgen
 
----
+#### Device Owner einrichten (empfohlen)
 
-## Bekannte Einschränkungen
-
-### Was GuardDroid **kann**
-- Apps sperren (Device Owner, API 24+)
-- Apps ausblenden (Device Owner)
-- Deinstallation verhindern (Device Admin + Owner)
-- Installation neuer Apps sperren (Device Owner)
-- App-Nutzung überwachen (UsageStats)
-
-### Was GuardDroid **nicht** kann
-- Sich selbst zum Device Owner machen (Android-Sicherheitsgrenze)
-- Root-Rechte erwerben
-- Auf andere Apps' Daten zugreifen
-- Internetverbindung der Apps blockieren (kein VPN in dieser Version)
-- Apps blockieren ohne Device Owner oder Accessibility Service
-- GuardDroid selbst kann bei Device Owner nicht deinstalliert werden
-
-### Gerätespezifische Einschränkungen
-- Einige Hersteller-Launcher zeigen ausgeblendete Apps weiterhin an
-- Kiosk-Modus (Lock Task) benötigt Device Owner
-- Manche EMUI-Versionen erfordern manuelle Bestätigung für Device Admin
-
----
-
-## Entwicklung
-
-### Voraussetzungen
-- Android Studio Ladybug oder neuer
-- JDK 17
-- Android SDK mit API 35
-
-### Build
+Für vollständige Sperr-Funktionen:
 
 ```bash
-# Debug APK
+# Gerät darf keine Konten haben – vorher alle entfernen:
+# Einstellungen → Konten → alle entfernen
+
+adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver
+```
+
+Konten können danach wieder hinzugefügt werden.
+
+#### APK auf GitHub manuell bauen
+
+Unter [Actions → CI](https://github.com/fla-rion/guarddroid/actions/workflows/ci.yml) → „Run workflow" → Build-Typ wählen → APK als Artifact herunterladen.
+
+### Einrichtungsassistent (8 Schritte)
+
+1. **Willkommen** – Überblick über GuardDroid
+2. **Geräteanalyse** – Automatische Erkennung aller Geräteeigenschaften
+3. **Berechtigungen** – Nutzungsdaten, Barrierefreiheit, Device Admin
+4. **Master-Code** – Sicheres Festlegen des Administrator-Codes
+5. **Apps konfigurieren** – Status für jede installierte App festlegen
+6. **Zeitpläne** – Nutzungszeiten pro Wochentag und Zeitfenster
+7. **Systemregeln** – Installation, Einstellungen, USB-Debugging
+8. **Zusammenfassung** – Überblick vor Abschluss
+
+### Architektur
+
+```
+app/                    → Activities, Services, BroadcastReceiver
+core/
+  common/               → AppStatus, Capability (gemeinsame Typen)
+  device/               → DeviceAnalyzer, CapabilityEngine
+  management/           → ManagementProvider (DeviceOwner / Admin / Accessibility)
+  security/             → SecurityManager (PBKDF2, Keystore)
+  scheduling/           → ScheduleEvaluator (Zeitpläne)
+  database/             → Room DB, DAOs, Entities
+  update/               → GitHub Releases Update-Checker, WorkManager
+feature/
+  setup/                → 8-Schritte-Einrichtungsassistent
+  apps/                 → App-Liste für den Benutzer
+  admin/                → Admin-Dashboard mit Code-Eingabe
+  restrictions/         → Systemregeln-Verwaltung
+```
+
+### Datenschutz
+
+- Keine Netzwerkkommunikation (außer freiwilliger Update-Check)
+- Keine Analytics, keine Werbung
+- Alle Daten lokal auf dem Gerät
+- Keine Registrierung, kein Account
+
+### Bekannte Einschränkungen
+
+- GuardDroid kann sich nicht selbst zum Device Owner machen (Android-Sicherheitsgrenze)
+- Einige Hersteller-Launcher zeigen ausgeblendete Apps weiterhin an
+- Kein VPN-basiertes Internet-Blocking in dieser Version
+
+### Entwicklung
+
+```bash
+# Debug APK bauen
 ./gradlew assembleDebug
 
-# Unit Tests
+# Tests
 ./gradlew test
 
 # Lint
 ./gradlew lint
-
-# Alle Checks
-./gradlew check
 ```
 
-### Projektstruktur
+**Voraussetzungen:** Android Studio Ladybug+, JDK 17, Android SDK API 35
 
-Das Projekt verwendet Gradle Kotlin DSL mit Version Catalog (`gradle/libs.versions.toml`).
-
-Abhängigkeiten:
-- **Hilt** für Dependency Injection
-- **Room** für lokale Datenspeicherung
-- **ViewBinding** für typsichere Views
-- **Coroutines + Flow** für asynchrone Operationen
-- **Material 3** für modernes UI
-- **EncryptedSharedPreferences** für sicheren Master-Code
-
-### Tests
-
-```bash
-# Unit Tests
-./gradlew :core:scheduling:test
-./gradlew :core:security:test
-./gradlew :core:device:test
-
-# Instrumented Tests (Emulator/Gerät)
-./gradlew connectedAndroidTest
-```
-
----
-
-## Datenschutz
-
-- Keine Netzwerkkommunikation
-- Keine Analytics
-- Keine Werbung
-- Keine Cloud-Speicherung
-- Alle Daten bleiben auf dem Gerät
-- Keine Registrierung, kein Account
-
----
-
-## Sicherheitsmodell
-
-```
-Master-Code
-    ↓ PBKDF2WithHmacSHA256 (100.000 Iterationen)
-    ↓ 16-Byte zufälliges Salt (SecureRandom)
-    ↓ 32-Byte Hash
-    ↓ gespeichert in EncryptedSharedPreferences (AES256-GCM)
-    ↓ gesichert durch Android Keystore
-```
-
-Der Master-Code verlässt das Gerät niemals. Er wird nie im Klartext gespeichert oder übertragen.
-
----
-
-## Lizenz
+### Lizenz
 
 Apache License 2.0 – siehe [LICENSE](LICENSE)
 
 ---
 
-## Beitragen
+## English
 
-Dieses Projekt ist Open Source. Pull Requests sind willkommen.
+A generic, manufacturer-independent Android parental control and device management app.
 
-Bitte beachten:
-- Nur offizielle Android-APIs verwenden
-- Keine Root-Exploits
-- Keine Sicherheitslücken einführen
-- Tests für neue Funktionen schreiben
-- Keine externen Abhängigkeiten ohne gute Begründung
+### Overview
+
+GuardDroid allows parents and guardians to manage Android devices with flexible parental control rules. The app works on virtually all Android devices from Android 8.0 onwards — including Huawei devices without Google Play Services.
+
+> **Important:** GuardDroid is not a cloud solution. All rules are stored and executed locally. No internet required, no sign-in, no Google account.
+
+### Supported Android Versions
+
+| Version | API | Status |
+|---------|-----|--------|
+| Android 8.0 Oreo | 26 | ✅ Minimum |
+| Android 10 | 29 | ✅ Tested |
+| Android 12 | 31 | ✅ Tested |
+| Android 14 | 34 | ✅ Tested |
+| Android 15 | 35 | ✅ Target SDK |
+
+### Supported Devices
+
+| Device | System | GMS/HMS | Support |
+|--------|--------|---------|---------|
+| Google Pixel | Stock Android | GMS | ✅ Full |
+| Samsung (One UI) | One UI | GMS | ✅ Full |
+| Xiaomi / HyperOS | MIUI/HyperOS | GMS | ✅ Full |
+| Motorola | Stock Android | GMS | ✅ Full |
+| Huawei P20 lite | EMUI 8+ | GMS | ✅ Full |
+| Huawei P40 lite | EMUI 10 | HMS | ✅ Full |
+| Honor | Magic UI/HMS | HMS | ✅ Full |
+| Without GMS | AOSP | none | ✅ Full |
+
+### Features
+
+#### App Status
+
+| Status | Meaning |
+|--------|---------|
+| `ALWAYS_ALLOWED` | App is always accessible |
+| `SCHEDULED` | App only accessible during configured time windows |
+| `ADMIN_ONLY` | App only accessible in admin mode |
+| `BLOCKED` | App is blocked |
+| `HIDDEN` | App hidden from launcher (requires Device Owner) |
+
+#### Management Levels
+
+| Feature | Accessibility | Device Admin | Device Owner |
+|---------|:---:|:---:|:---:|
+| Monitor app usage | ✅ | ✅ | ✅ |
+| Uninstall protection | ❌ | ✅ | ✅ |
+| Block app (system) | ❌ | ❌ | ✅ |
+| Hide app | ❌ | ❌ | ✅ |
+| Block installation | ❌ | ❌ | ✅ |
+| Block unknown sources | ❌ | ❌ | ✅ |
+| Restrict settings | ❌ | ❌ | ✅ |
+
+#### Security
+
+- Master code: PBKDF2WithHmacSHA256, 100,000 iterations, 16-byte salt
+- Stored in `EncryptedSharedPreferences` (Android Keystore)
+- Rate limiting: After 5 failed attempts → 30-minute lockout
+- Admin mode timeout: 5 minutes (configurable)
+
+### Installation
+
+#### Direct APK install
+
+1. Download APK from [Releases](https://github.com/fla-rion/guarddroid/releases)
+2. Settings → Security → Allow "Unknown sources" temporarily
+3. Install APK and follow the setup wizard
+
+#### Set up Device Owner (recommended)
+
+For full blocking capabilities:
+
+```bash
+# Device must have no accounts — remove all first:
+# Settings → Accounts → remove all
+
+adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver
+```
+
+Accounts can be re-added afterwards.
+
+#### Build APK manually on GitHub
+
+Go to [Actions → CI](https://github.com/fla-rion/guarddroid/actions/workflows/ci.yml) → "Run workflow" → choose build type → download APK as artifact.
+
+### Setup Wizard (8 steps)
+
+1. **Welcome** – GuardDroid overview
+2. **Device Analysis** – Automatic detection of all device capabilities
+3. **Permissions** – Usage data, accessibility, device admin
+4. **Master Code** – Securely set the administrator code
+5. **Configure Apps** – Set status for each installed app
+6. **Schedules** – Define usage times per weekday and time window
+7. **System Rules** – Installation, settings, USB debugging
+8. **Summary** – Review before finishing
+
+### Architecture
+
+```
+app/                    → Activities, Services, BroadcastReceiver
+core/
+  common/               → AppStatus, Capability (shared types)
+  device/               → DeviceAnalyzer, CapabilityEngine
+  management/           → ManagementProvider (DeviceOwner / Admin / Accessibility)
+  security/             → SecurityManager (PBKDF2, Keystore)
+  scheduling/           → ScheduleEvaluator (time-based rules)
+  database/             → Room DB, DAOs, Entities
+  update/               → GitHub Releases update checker, WorkManager
+feature/
+  setup/                → 8-step setup wizard
+  apps/                 → App list for users
+  admin/                → Admin dashboard with code input
+  restrictions/         → System rules management
+```
+
+### Privacy
+
+- No network communication (except optional update check)
+- No analytics, no ads
+- All data stored locally on device
+- No registration, no account required
+
+### Known Limitations
+
+- GuardDroid cannot make itself Device Owner (Android security boundary)
+- Some manufacturer launchers still show hidden apps
+- No VPN-based internet blocking in this version
+
+### Development
+
+```bash
+# Build debug APK
+./gradlew assembleDebug
+
+# Tests
+./gradlew test
+
+# Lint
+./gradlew lint
+```
+
+**Requirements:** Android Studio Ladybug+, JDK 17, Android SDK API 35
+
+### License
+
+Apache License 2.0 – see [LICENSE](LICENSE)
+
+---
+
+## Google Play Store – Veröffentlichungsplan / Publishing Plan
+
+### 🇩🇪 Schritte für den Google Play Store
+
+#### Schritt 1: Play Console Konto (einmalig, ca. 25 USD)
+- Konto erstellen: [play.google.com/console](https://play.google.com/console)
+- Einmalige Registrierungsgebühr: 25 USD
+- Entwickler-Identität verifizieren (Name, Adresse, ggf. D-U-N-S-Nummer)
+
+#### Schritt 2: Signing-Keystore erstellen
+```bash
+keytool -genkey -v \
+  -keystore guarddroid-release.keystore \
+  -alias guarddroid \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000
+```
+> ⚠️ **Keystore niemals verlieren!** Ohne ihn können keine Updates veröffentlicht werden.
+> Keystore NICHT ins Git-Repository committen.
+
+#### Schritt 3: Keystore als GitHub Secret hinterlegen
+```bash
+# Keystore als Base64 kodieren
+base64 -w 0 guarddroid-release.keystore > keystore.b64
+```
+In GitHub → Settings → Secrets → Actions folgende Secrets anlegen:
+- `KEYSTORE_BASE64` – Base64-kodierter Keystore
+- `STORE_PASSWORD` – Keystore-Passwort
+- `KEY_ALIAS` – Key-Alias (z.B. `guarddroid`)
+- `KEY_PASSWORD` – Key-Passwort
+
+Danach baut der Release-Workflow automatisch eine signierte APK und ein AAB.
+
+#### Schritt 4: App-Eintrag in Play Console anlegen
+- App-Name: **GuardDroid**
+- Kategorie: **Produktivität** oder **Tools**
+- Kurzbeschreibung (80 Zeichen): *Jugendschutz & Geräteverwaltung für Android – offline, ohne Cloud*
+- Vollständige Beschreibung: Funktionen aus dieser README nutzen
+- Screenshots: Mindestens 2 Phone-Screenshots (1080×1920 oder ähnlich)
+- Feature Graphic: 1024×500 px (Pflicht)
+- App-Symbol: 512×512 px (hochauflösend, bereits im Projekt vorhanden)
+
+#### Schritt 5: Datenschutzerklärung (Pflicht)
+Google Play **verlangt** eine Datenschutzerklärung, auch wenn die App keine Daten sammelt. Mindestinhalt:
+- Welche Daten werden gesammelt? → Keine, außer lokal gespeicherte Kinderschutz-Regeln
+- Werden Daten geteilt? → Nein
+- Kontakt des Entwicklers
+
+Empfehlung: einfache HTML-Seite auf GitHub Pages oder Hosting eigener Wahl.
+
+#### Schritt 6: Inhaltsbewertung
+- Im Play Console-Fragebogen ausfüllen
+- GuardDroid fällt voraussichtlich unter **PEGI 3 / Everyone**
+- Kategorie „Überwachung von Geräten" im Fragebogen beachten → ehrlich beantworten
+
+#### Schritt 7: AAB hochladen & Release erstellen
+1. GitHub Release mit Tag erstellen: `git tag v1.0.0 && git push --tags`
+2. Der Release-Workflow baut automatisch `app-release.aab`
+3. In Play Console → Production → Release erstellen → AAB hochladen
+4. Rollout auf 10% starten, dann schrittweise erhöhen
+
+#### Schritt 8: Wichtige Play-Policy-Anforderungen für GuardDroid
+- **Device Admin / Überwachung**: Google verlangt ehrliche Beschreibung; GuardDroid muss klar als Kinderschutz-Tool deklariert werden
+- **Accessibility Service**: Muss im Play Store Listing erklärt werden; Google prüft Accessibility-APIs streng → vollständige Erklärung einreichen
+- **Permissions**: `PACKAGE_USAGE_STATS` muss begründet werden (UsageStats-Declaration bei Google einreichen falls nötig)
+- **Zielgruppe**: Nicht als „Für Kinder" markieren (die App richtet sich an Eltern, nicht Kinder)
+
+#### Zeitplan (realistisch)
+| Schritt | Aufwand | Dauer |
+|---------|---------|-------|
+| Play Console Konto + Keystore | 1–2 Stunden | Tag 1 |
+| Screenshots & Grafiken erstellen | 2–4 Stunden | Tag 1–2 |
+| Datenschutzerklärung | 1 Stunde | Tag 2 |
+| Play Console Eintrag befüllen | 2 Stunden | Tag 2–3 |
+| Google-Prüfung | automatisch | 1–7 Tage |
+
+---
+
+### 🇬🇧 Steps for Google Play Store
+
+#### Step 1: Play Console Account (one-time, ~$25 USD)
+- Create account: [play.google.com/console](https://play.google.com/console)
+- One-time registration fee: $25 USD
+- Verify developer identity (name, address)
+
+#### Step 2: Create Signing Keystore
+```bash
+keytool -genkey -v \
+  -keystore guarddroid-release.keystore \
+  -alias guarddroid \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000
+```
+> ⚠️ **Never lose the keystore!** Without it you cannot publish updates.
+> Do NOT commit the keystore to the Git repository.
+
+#### Step 3: Add Keystore as GitHub Secret
+```bash
+# Encode keystore as Base64
+base64 -w 0 guarddroid-release.keystore > keystore.b64
+```
+In GitHub → Settings → Secrets → Actions, create these secrets:
+- `KEYSTORE_BASE64` – Base64-encoded keystore
+- `STORE_PASSWORD` – Keystore password
+- `KEY_ALIAS` – Key alias (e.g. `guarddroid`)
+- `KEY_PASSWORD` – Key password
+
+The release workflow will then automatically build a signed APK and AAB.
+
+#### Step 4: Create App Listing in Play Console
+- App name: **GuardDroid**
+- Category: **Productivity** or **Tools**
+- Short description (80 chars): *Parental control & device management for Android – offline, no cloud*
+- Full description: Use features from this README
+- Screenshots: At least 2 phone screenshots (1080×1920 or similar)
+- Feature graphic: 1024×500 px (required)
+- App icon: 512×512 px (high-res, already in project)
+
+#### Step 5: Privacy Policy (required)
+Google Play **requires** a privacy policy even if the app collects no data. Minimum content:
+- What data is collected? → None, except locally stored parental rules
+- Is data shared? → No
+- Developer contact
+
+Recommendation: Simple HTML page on GitHub Pages or any hosting.
+
+#### Step 6: Content Rating
+- Complete the Play Console questionnaire
+- GuardDroid will likely fall under **PEGI 3 / Everyone**
+- Note the "device monitoring" category in the questionnaire → answer honestly
+
+#### Step 7: Upload AAB & Create Release
+1. Create GitHub Release with tag: `git tag v1.0.0 && git push --tags`
+2. The release workflow automatically builds `app-release.aab`
+3. In Play Console → Production → Create release → Upload AAB
+4. Start rollout at 10%, then increase gradually
+
+#### Step 8: Important Play Policy Requirements for GuardDroid
+- **Device Admin / Monitoring**: Google requires honest description; GuardDroid must clearly be declared as a parental control tool
+- **Accessibility Service**: Must be explained in the Play Store listing; Google reviews Accessibility APIs strictly → submit full explanation
+- **Permissions**: `PACKAGE_USAGE_STATS` may require a declaration if prompted by Google
+- **Target audience**: Do NOT mark as "For children" (the app targets parents, not children)
+
+#### Timeline (realistic)
+| Step | Effort | Duration |
+|------|--------|----------|
+| Play Console account + keystore | 1–2 hours | Day 1 |
+| Screenshots & graphics | 2–4 hours | Day 1–2 |
+| Privacy policy | 1 hour | Day 2 |
+| Fill Play Console listing | 2 hours | Day 2–3 |
+| Google review | automatic | 1–7 days |

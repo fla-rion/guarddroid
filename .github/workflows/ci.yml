@@ -5,6 +5,16 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'Build type (debug / release-unsigned)'
+        required: false
+        default: 'debug'
+        type: choice
+        options:
+          - debug
+          - release-unsigned
 
 jobs:
   build:
@@ -33,13 +43,27 @@ jobs:
         run: ./gradlew test
 
       - name: Build Debug APK
+        if: github.event.inputs.build_type != 'release-unsigned'
         run: ./gradlew assembleDebug
 
+      - name: Build Release APK (unsigned)
+        if: github.event.inputs.build_type == 'release-unsigned'
+        run: ./gradlew assembleRelease
+
       - name: Upload Debug APK
+        if: github.event.inputs.build_type != 'release-unsigned'
         uses: actions/upload-artifact@v4
         with:
           name: guarddroid-debug-${{ github.sha }}
           path: app/build/outputs/apk/debug/*.apk
+          retention-days: 30
+
+      - name: Upload Release APK (unsigned)
+        if: github.event.inputs.build_type == 'release-unsigned'
+        uses: actions/upload-artifact@v4
+        with:
+          name: guarddroid-release-unsigned-${{ github.sha }}
+          path: app/build/outputs/apk/release/*.apk
           retention-days: 30
 
       - name: Upload Test Reports

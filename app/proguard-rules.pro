@@ -1,4 +1,5 @@
 # GuardDroid ProGuard Rules
+-dontoptimize
 
 # Keep Device Admin Receiver
 -keep class dev.guarddroid.app.receiver.GuardDroidAdminReceiver { *; }

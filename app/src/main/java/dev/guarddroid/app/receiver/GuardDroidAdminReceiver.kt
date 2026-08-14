@@ -24,8 +24,4 @@ class GuardDroidAdminReceiver : DeviceAdminReceiver() {
         Log.w(TAG, "Device Admin disabled")
     }
 
-    @Suppress("DEPRECATION")
-    override fun onPasswordFailed(context: Context, intent: Intent) {
-        Log.w(TAG, "Password failed attempt")
-    }
 }

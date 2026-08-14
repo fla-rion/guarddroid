@@ -20,9 +20,8 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystoreB64 = System.getenv("KEYSTORE_BASE64")
+            val keystoreB64 = System.getenv("KEYSTORE_BASE64")?.takeIf { it.isNotEmpty() }
             if (keystoreB64 != null) {
-                // CI: decode base64 keystore written to a temp file by the workflow
                 storeFile = file(System.getenv("KEYSTORE_PATH") ?: "release.keystore")
                 storePassword = System.getenv("STORE_PASSWORD") ?: ""
                 keyAlias = System.getenv("KEY_ALIAS") ?: ""
@@ -42,7 +41,7 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("boolean", "ENABLE_TEST_FEATURES", "false")
-            val keystoreB64 = System.getenv("KEYSTORE_BASE64")
+            val keystoreB64 = System.getenv("KEYSTORE_BASE64")?.takeIf { it.isNotEmpty() }
             if (keystoreB64 != null) signingConfig = signingConfigs.getByName("release")
         }
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_channel_name">GuardDroid Updates</string>
+    <string name="update_channel_description">Notifications about available app updates</string>
+    <string name="update_available_title">Update available</string>
+    <string name="update_available_text">GuardDroid %s is available. Open admin area to install.</string>
+    <string name="update_check_failed">Update check failed</string>
+    <string name="update_up_to_date">GuardDroid is up to date</string>
+    <string name="install_update">Install Update</string>
+    <string name="update_checking">Checking for updates&#8230;</string>
+    <string name="admin_update_section">App Update</string>
+    <string name="admin_check_update">Check for Update</string>
+</resources>

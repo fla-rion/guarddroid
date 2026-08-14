@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setup_permissions_title" android:textSize="22sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Erteilen Sie die benötigten Berechtigungen für GuardDroid." android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_usage_stats" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_usage_stats_description" android:textSize="12sp" />
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvUsageStatsStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnGrantUsageStats" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_settings" android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_accessibility" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_accessibility_description" android:textSize="12sp" />
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvAccessibilityStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnGrantAccessibility" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_settings" android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_device_admin" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_device_admin_description" android:textSize="12sp" />
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvDeviceAdminStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnGrantDeviceAdmin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/grant_permission" android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_device_owner" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_device_owner_description" android:textSize="12sp" />
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvDeviceOwnerStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/device_owner_instructions" android:textSize="11sp" android:fontFamily="monospace" android:layout_marginTop="8dp" android:background="#F5F5F5" android:padding="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

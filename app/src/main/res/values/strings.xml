@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GuardDroid</string>
+
+    <!-- Admin Receiver -->
+    <string name="admin_disable_warning">If you disable GuardDroid as device administrator, all parental control rules will be removed. Please enter your master code to continue.</string>
+
+    <!-- Accessibility Service -->
+    <string name="accessibility_service_description">GuardDroid uses the accessibility service to detect app switches and enforce parental control rules.</string>
+    <string name="accessibility_service_summary">App monitoring for parental control</string>
+
+    <!-- Monitor Service -->
+    <string name="monitor_channel_name">GuardDroid Protection</string>
+    <string name="monitor_channel_description">Monitors app usage according to parental control rules</string>
+    <string name="monitor_notification_title">GuardDroid active</string>
+    <string name="monitor_notification_text">Parental control is active</string>
+
+    <!-- Setup -->
+    <string name="setup_welcome_title">Welcome to GuardDroid</string>
+    <string name="setup_welcome_text">GuardDroid helps you safely manage your child\'s device usage. You can block apps, set schedules, and restrict access to settings.</string>
+    <string name="setup_device_analysis_title">Device Analysis</string>
+    <string name="setup_permissions_title">Permissions</string>
+    <string name="setup_master_code_title">Set Master Code</string>
+    <string name="setup_apps_title">Configure Apps</string>
+    <string name="setup_schedule_title">Schedules</string>
+    <string name="setup_system_rules_title">System Rules</string>
+    <string name="setup_summary_title">Summary</string>
+    <string name="setup_complete">Complete Setup</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+
+    <!-- Master Code -->
+    <string name="enter_master_code">Enter Master Code</string>
+    <string name="confirm_master_code">Confirm Master Code</string>
+    <string name="master_code_hint">At least 4 characters</string>
+    <string name="master_code_mismatch">The codes do not match</string>
+    <string name="master_code_too_short">Code must be at least 4 characters</string>
+    <string name="master_code_set_success">Master code has been set</string>
+
+    <!-- App Status -->
+    <string name="status_always_allowed">Always Allowed</string>
+    <string name="status_scheduled">Scheduled</string>
+    <string name="status_admin_only">Admin Only</string>
+    <string name="status_blocked">Blocked</string>
+    <string name="status_hidden">Hidden</string>
+
+    <!-- Actions -->
+    <string name="action_unblock">Unblock</string>
+    <string name="action_show">Show</string>
+
+    <!-- Home -->
+    <string name="home_title">Allowed Apps</string>
+    <string name="home_empty">No apps available</string>
+    <string name="open_admin">Admin Area</string>
+
+    <!-- Admin -->
+    <string name="admin_title">Administrator</string>
+    <string name="admin_code_prompt">Enter master code</string>
+    <string name="admin_code_wrong">Wrong code</string>
+    <string name="admin_locked_out">Too many failed attempts. Please wait %d minutes.</string>
+    <string name="admin_timeout_warning">Admin mode will end automatically after inactivity</string>
+    <string name="admin_update_section">App Update</string>
+    <string name="admin_check_update">Check for Update</string>
+
+    <!-- Blocked App -->
+    <string name="unknown_app">Unknown App</string>
+    <string name="app_blocked_title">App Blocked</string>
+    <string name="app_blocked_message">%s is blocked by GuardDroid.</string>
+    <string name="go_home">Back to Home</string>
+    <string name="admin_access">Admin Access</string>
+
+    <!-- Capabilities -->
+    <string name="capability_supported">Available</string>
+    <string name="capability_unsupported">Not available</string>
+    <string name="capability_requires_permission">Permission required</string>
+    <string name="capability_requires_device_owner">Device owner required</string>
+    <string name="capability_requires_setup">Setup required</string>
+
+    <!-- Permissions -->
+    <string name="permission_usage_stats">Usage Data Access</string>
+    <string name="permission_usage_stats_description">Allows GuardDroid to detect the currently active app</string>
+    <string name="permission_accessibility">Accessibility Service</string>
+    <string name="permission_accessibility_description">Allows GuardDroid to detect app switches</string>
+    <string name="permission_device_admin">Device Administrator</string>
+    <string name="permission_device_admin_description">Enables basic uninstall protection</string>
+    <string name="permission_device_owner">Device Owner</string>
+    <string name="permission_device_owner_description">Enables full app management (blocking, hiding, etc.)</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="device_owner_instructions">Device Owner Setup:\n\nadb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver\n\nThis must be done once via ADB before the first setup if the device has no other accounts.</string>
+
+    <!-- Errors -->
+    <string name="error_not_supported">This feature is not supported on this device.</string>
+    <string name="error_requires_device_owner">This feature requires device owner mode.</string>
+    <string name="error_generic">An error occurred: %s</string>
+    <string name="error">Error</string>
+
+    <!-- Days -->
+    <string name="day_monday">Monday</string>
+    <string name="day_tuesday">Tuesday</string>
+    <string name="day_wednesday">Wednesday</string>
+    <string name="day_thursday">Thursday</string>
+    <string name="day_friday">Friday</string>
+    <string name="day_saturday">Saturday</string>
+    <string name="day_sunday">Sunday</string>
+    <string name="weekdays">Weekdays</string>
+    <string name="weekend">Weekend</string>
+    <string name="all_days">All days</string>
+
+    <!-- Accessibility content descriptions -->
+    <string name="cd_block_app">Block %s</string>
+    <string name="cd_unblock_app">Unblock %s</string>
+    <string name="cd_hide_app">Hide %s</string>
+    <string name="cd_show_app">Show %s</string>
+    <string name="cd_status_label">Status: %s</string>
+    <string name="cd_change_status">Change status for %s</string>
+
+    <!-- Restrictions -->
+    <string name="restrictions_title">System Rules</string>
+</resources>

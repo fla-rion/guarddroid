@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="admin_title">Administrator</string>
+    <string name="admin_code_prompt">Master-Code eingeben</string>
+    <string name="error">Fehler</string>
+    <string name="status_always_allowed">Immer erlaubt</string>
+    <string name="status_scheduled">Zeitplan</string>
+    <string name="status_admin_only">Nur Admin</string>
+    <string name="status_blocked">Gesperrt</string>
+    <string name="status_hidden">Ausgeblendet</string>
+    <string name="action_unblock">Entsperren</string>
+    <string name="action_show">Anzeigen</string>
+    <string name="cd_block_app">%s sperren</string>
+    <string name="cd_unblock_app">%s entsperren</string>
+    <string name="cd_hide_app">%s ausblenden</string>
+    <string name="cd_show_app">%s anzeigen</string>
+    <string name="cd_status_label">Status: %s</string>
+    <string name="admin_update_section">App-Update</string>
+    <string name="admin_check_update">Nach Updates suchen</string>
+    <string name="back">Zurück</string>
+    <string name="enter_master_code">Master-Code eingeben</string>
+</resources>

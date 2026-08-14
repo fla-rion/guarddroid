@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary: Deep Indigo - trustworthy, secure -->
+    <color name="md_theme_light_primary">#1565C0</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#D6E4FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#001849</color>
+    <color name="md_theme_light_secondary">#00695C</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#B2DFDB</color>
+    <color name="md_theme_light_onSecondaryContainer">#00201C</color>
+    <color name="md_theme_light_tertiary">#6A1B9A</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#E1BEE7</color>
+    <color name="md_theme_light_onTertiaryContainer">#21005D</color>
+    <color name="md_theme_light_error">#C62828</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_errorContainer">#FFCDD2</color>
+    <color name="md_theme_light_onErrorContainer">#410002</color>
+    <color name="md_theme_light_background">#F5F8FF</color>
+    <color name="md_theme_light_onBackground">#1A1C1E</color>
+    <color name="md_theme_light_surface">#FAFAFA</color>
+    <color name="md_theme_light_onSurface">#1A1C1E</color>
+    <color name="md_theme_light_surfaceVariant">#E0E7F5</color>
+    <color name="md_theme_light_onSurfaceVariant">#44474F</color>
+    <color name="md_theme_light_outline">#74777F</color>
+    <color name="md_theme_light_surfaceTint">#1565C0</color>
+
+    <!-- Dark theme -->
+    <color name="md_theme_dark_primary">#90CAF9</color>
+    <color name="md_theme_dark_onPrimary">#003070</color>
+    <color name="md_theme_dark_primaryContainer">#004799</color>
+    <color name="md_theme_dark_onPrimaryContainer">#D6E4FF</color>
+    <color name="md_theme_dark_secondary">#80CBC4</color>
+    <color name="md_theme_dark_onSecondary">#003732</color>
+    <color name="md_theme_dark_secondaryContainer">#004F47</color>
+    <color name="md_theme_dark_onSecondaryContainer">#B2DFDB</color>
+    <color name="md_theme_dark_tertiary">#CE93D8</color>
+    <color name="md_theme_dark_onTertiary">#38006B</color>
+    <color name="md_theme_dark_tertiaryContainer">#4E0095</color>
+    <color name="md_theme_dark_onTertiaryContainer">#E1BEE7</color>
+    <color name="md_theme_dark_error">#EF9A9A</color>
+    <color name="md_theme_dark_onError">#690005</color>
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+    <color name="md_theme_dark_onErrorContainer">#FFCDD2</color>
+    <color name="md_theme_dark_background">#1A1C1E</color>
+    <color name="md_theme_dark_onBackground">#E2E2E6</color>
+    <color name="md_theme_dark_surface">#1A1C1E</color>
+    <color name="md_theme_dark_onSurface">#E2E2E6</color>
+    <color name="md_theme_dark_surfaceVariant">#44474F</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C4C7CF</color>
+    <color name="md_theme_dark_outline">#8E9099</color>
+
+    <!-- Semantic status colors -->
+    <color name="status_allowed">#2E7D32</color>
+    <color name="status_scheduled">#E65100</color>
+    <color name="status_admin_only">#1565C0</color>
+    <color name="status_blocked">#C62828</color>
+    <color name="status_hidden">#6A1B9A</color>
+    <color name="blocked_background">#1A0000</color>
+
+    <!-- Legacy aliases -->
+    <color name="primary">@color/md_theme_light_primary</color>
+    <color name="primary_dark">@color/md_theme_light_primaryContainer</color>
+    <color name="on_primary">@color/md_theme_light_onPrimary</color>
+    <color name="secondary">@color/md_theme_light_secondary</color>
+    <color name="on_secondary">@color/md_theme_light_onSecondary</color>
+    <color name="error">@color/md_theme_light_error</color>
+    <color name="error_dark">@color/md_theme_light_errorContainer</color>
+    <color name="on_error">@color/md_theme_light_onError</color>
+    <color name="surface">@color/md_theme_light_surface</color>
+    <color name="on_surface">@color/md_theme_light_onSurface</color>
+</resources>

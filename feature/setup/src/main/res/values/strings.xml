@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="master_code_too_short">At least 4 characters required</string>
+    <string name="master_code_mismatch">The codes do not match</string>
+    <string name="master_code_set_success">Set code</string>
+    <string name="permission_device_admin_description">Enables uninstall protection</string>
+    <string name="permission_usage_stats">Usage Data Access</string>
+    <string name="permission_usage_stats_description">Detects the active app</string>
+    <string name="permission_accessibility">Accessibility Service</string>
+    <string name="permission_accessibility_description">Detects app switches</string>
+    <string name="permission_device_admin">Device Administrator</string>
+    <string name="permission_device_owner">Device Owner</string>
+    <string name="permission_device_owner_description">Full app management</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="device_owner_instructions">adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver</string>
+    <string name="capability_requires_device_owner">Device owner required</string>
+</resources>

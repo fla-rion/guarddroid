@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="master_code_too_short">Mindestens 4 Zeichen erforderlich</string>
+    <string name="master_code_mismatch">Die Codes stimmen nicht überein</string>
+    <string name="master_code_set_success">Code festlegen</string>
+    <string name="permission_device_admin_description">Ermöglicht Deinstallationsschutz</string>
+    <string name="permission_usage_stats">Nutzungsdaten-Zugriff</string>
+    <string name="permission_usage_stats_description">Erkennt die aktuelle App</string>
+    <string name="permission_accessibility">Barrierefreiheitsdienst</string>
+    <string name="permission_accessibility_description">Erkennt App-Wechsel</string>
+    <string name="permission_device_admin">Geräteadministrator</string>
+    <string name="permission_device_owner">Gerätebesitzer</string>
+    <string name="permission_device_owner_description">Vollständige App-Verwaltung</string>
+    <string name="grant_permission">Berechtigung erteilen</string>
+    <string name="open_settings">Einstellungen öffnen</string>
+    <string name="device_owner_instructions">adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver</string>
+    <string name="capability_requires_device_owner">Gerätebesitzer erforderlich</string>
+</resources>

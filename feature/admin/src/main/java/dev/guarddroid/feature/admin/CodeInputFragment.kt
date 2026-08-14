@@ -9,9 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import dev.guarddroid.app.activity.AdminActivity
 import dev.guarddroid.feature.admin.databinding.FragmentCodeInputBinding
 import kotlinx.coroutines.launch
 
@@ -42,7 +43,7 @@ class CodeInputFragment : Fragment() {
                 viewModel.uiState.collect { state ->
                     when (state) {
                         is AdminUiState.Authenticated -> {
-                            (activity as? AdminActivity)?.onAuthenticationSuccess()
+                            setFragmentResult(AUTH_RESULT_KEY, bundleOf(AUTH_RESULT_OK to true))
                         }
                         is AdminUiState.Error -> {
                             Snackbar.make(binding.root, state.message, Snackbar.LENGTH_LONG).show()
@@ -68,5 +69,10 @@ class CodeInputFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val AUTH_RESULT_KEY = "auth_result"
+        const val AUTH_RESULT_OK = "authenticated"
     }
 }

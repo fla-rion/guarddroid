@@ -42,8 +42,16 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun showCodeInput() {
+        val fragment = CodeInputFragment()
+        supportFragmentManager.setFragmentResultListener(
+            CodeInputFragment.AUTH_RESULT_KEY, this
+        ) { _, result ->
+            if (result.getBoolean(CodeInputFragment.AUTH_RESULT_OK)) {
+                onAuthenticationSuccess()
+            }
+        }
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, CodeInputFragment())
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 

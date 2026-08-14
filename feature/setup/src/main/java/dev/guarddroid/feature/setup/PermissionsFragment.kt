@@ -59,11 +59,20 @@ class PermissionsFragment : Fragment() {
 
     private fun hasUsageStatsPermission(): Boolean {
         val appOps = requireContext().getSystemService(android.app.AppOpsManager::class.java)
-        val mode = appOps.unsafeCheckOpNoThrow(
-            android.app.AppOpsManager.OPSTR_GET_USAGE_STATS,
-            android.os.Process.myUid(),
-            requireContext().packageName
-        )
+        @Suppress("DEPRECATION")
+        val mode = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            appOps.unsafeCheckOpNoThrow(
+                android.app.AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(),
+                requireContext().packageName
+            )
+        } else {
+            appOps.checkOpNoThrow(
+                android.app.AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(),
+                requireContext().packageName
+            )
+        }
         return mode == android.app.AppOpsManager.MODE_ALLOWED
     }
 

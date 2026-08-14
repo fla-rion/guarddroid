@@ -26,4 +26,6 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+    // org.json is an Android stub on JVM — add the standalone implementation for unit tests
+    testImplementation("org.json:json:20240303")
 }

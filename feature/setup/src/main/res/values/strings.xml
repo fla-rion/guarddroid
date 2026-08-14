@@ -15,4 +15,22 @@
     <string name="open_settings">Open Settings</string>
     <string name="device_owner_instructions">adb shell dpm set-device-owner dev.guarddroid.app/.receiver.GuardDroidAdminReceiver</string>
     <string name="capability_requires_device_owner">Device owner required</string>
+
+    <string name="setup_welcome_title">Welcome to GuardDroid</string>
+    <string name="setup_welcome_text">GuardDroid protects your device and helps you manage app usage safely.</string>
+    <string name="setup_master_code_title">Set Master Code</string>
+    <string name="enter_master_code">Enter master code</string>
+    <string name="confirm_master_code">Confirm master code</string>
+    <string name="setup_permissions_title">Permissions</string>
+    <string name="setup_apps_title">Configure Apps</string>
+    <string name="setup_schedule_title">Set Schedule</string>
+    <string name="setup_system_rules_title">System Rules</string>
+    <string name="setup_device_analysis_title">Device Analysis</string>
+    <string name="setup_summary_title">Setup Complete</string>
+
+    <string name="status_always_allowed">Always allowed</string>
+    <string name="status_scheduled">Scheduled</string>
+    <string name="status_admin_only">Admin only</string>
+    <string name="status_blocked">Blocked</string>
+    <string name="status_hidden">Hidden</string>
 </resources>

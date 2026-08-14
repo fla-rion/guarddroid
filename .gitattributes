@@ -1,0 +1,13 @@
+# Force LF line endings for shell scripts (required for Linux CI)
+gradlew text eol=lf
+*.sh text eol=lf
+
+# Windows batch files use CRLF
+*.bat text eol=crlf
+gradlew.bat text eol=crlf
+
+# Gradle wrapper jar is binary
+gradle/wrapper/gradle-wrapper.jar binary
+
+# All other text files: normalize on commit, checkout as-is
+* text=auto

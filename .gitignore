@@ -5,6 +5,13 @@ local.properties
 .idea/
 *.keystore
 *.jks
+*.p12
+*.pfx
+keystore.properties
+signing.properties
+release.keystore
+*-credentials.txt
+*-keystore-credentials.txt
 !gradle/wrapper/gradle-wrapper.jar
 /captures/
 .externalNativeBuild/
